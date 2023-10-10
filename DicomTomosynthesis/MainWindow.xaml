@@ -1,0 +1,46 @@
+﻿<Window x:Class="DicomTomosynthesis.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="DICOM Tomosynthesis by OPOCH" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="#0078D7"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="Slider">
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="openFolderButton" Grid.Row="0" Grid.Column="0" Click="Button_Click" Content="Open DICOM Folder"/>
+
+        <Image x:Name="DicomImage" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Stretch="Uniform"/>
+
+        <Button x:Name="PreviousFrameButton" Grid.Row="2" Grid.Column="1" Click="PreviousFrameButton_Click" Content="🡄🡄🡄"/>
+
+        <Button x:Name="NextFrameButton" Grid.Row="2" Grid.Column="2" Click="NextFrameButton_Click" Content="🡆🡆🡆"/>
+
+        <Button x:Name="PauseContinueButton" Grid.Row="2" Grid.Column="0" Click="PauseContinueButton_Click" Content="Stop"/>
+
+        <Slider x:Name="SpeedSlider" Minimum="1" Maximum="10" Value="5" TickPlacement="BottomRight" 
+                TickFrequency="1" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="2" ValueChanged="SpeedSlider_ValueChanged"/>
+        <!--<Slider x:Name="BrightnessSlider" Minimum="-1000" Maximum="1000" Value="0" TickPlacement="BottomRight" 
+                TickFrequency="50" Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="2" ValueChanged="BrightnessSlider_ValueChanged"/>-->
+    </Grid>
+</Window>
